@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Жизнь КГТУ</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+<style>
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	background-color: #f8f8fd
+}
+
+header, footer {
+    margin: 5px;
+}
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	text-align: justify;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-row img {
+    height: 50px;
+    width: auto;
+}
+
+.main-block {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    #justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.left-block {
+    text-align: justify;
+    flex: 1;
+    min-width: 250px;
+	padding: 0 15px;
+}
+
+.right-block {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.images-row {
+    display: flex;
+	flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+	justify-content: center;
+}
+
+.images-row img {
+    width: 186px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.images-row img:hover {
+    transform: scale(1.05);
+}
+
+.phone img {
+    width: 260px;
+    height: auto;
+}
+
+.history-block {
+    max-width: 980px;
+    text-align: justify;
+    margin: 10px auto;
+    padding: 15px 20px;
+}
+
+footer span {
+    display: block;
+    margin-top: 1px;
+}
+</style>
+</head>
+<body>
+
+
+<header>
+    <div class="header-row">
+        <img src="Герб КГТУ.png" alt="Герб КГТУ">
+        <h1>Жизнь КГТУ / KSTU Life</h1>
+    </div>
+</header>
+
+<div class="main-block">
+    <!-- Левый блок: текст и кнопки -->
+    <div class="left-block">
+		<p style="text-indent: 10px;">Приложение для студентов, курсантов, преподавателей КГТУ и БГАРФ. Доступ к актуальным мероприятиям и академическому расписанию.</p>
+		<p style="text-indent: 10px;">Данные сохраняются для <b><u>просмотра офлайн!</b></u> Очень пригодится, когда в КГТУ снова окажетесь в зоне без мобильной связи и интернета.</p>
+		<h2 style="text-indent: 10px;text-align: center;"><u>Версия 1.0</u></h2>
+        <div class="images-row">
+            <a href="https://github.com/Xalk07/website-KSTU_Life/releases/download/1.0/KSTU_Life_1.0_app-release.apk" target="_blank">
+                <img src="android-apk-dark.png" alt="Скачать APK">
+            </a>
+            <a href="https://github.com/Xalk07/website-KSTU_Life/releases/download/1.0/KSTU_Life_1.0_windows.zip" target="_blank">
+                <img src="Скачать для Windows.png" alt="Скачать для Windows">
+            </a>
+        </div>
+		<p style="text-indent: 10px;">Протестировано на устройствах с операционными системами Android 14 и Windows 10. На старых устройствах возможна некорректная работа приложения (Например, на Android 6 armeabi-v7a идёт вечная загрузка).</p>
+    </div>
+
+    <!-- Правый блок: телефон -->
+    <div class="right-block">
+        <div class="phone">
+            <img src="Скриншот.png" alt="Скриншот">
+        </div>
+    </div>
+</div>
+
+
+<div class="history-block">
+	<details>
+        <summary style="text-align: center;">Краткая история приложений для КГТУ</summary>
+    <p style="text-indent: 10px;">
+        Первое приложение «KSTU Mobile» было разработано для Android в 2021 году. Группа: <a href= "https://vk.com/public207894121">https://vk.com/public207894121</a>. В нём был реализован просмотр офлайн расписания и новостей. Это была ВКР (Выпускная квалификационная работа) студента. Приложение перестало работать из-за того, что КГТУ закрыли старый сайт расписания i-klgtu в конце июля - начале августа 2024 года.
+    </p>
+	<p style="text-indent: 10px;">
+		В 2023 году вышел «КГТУ Апп» для Android. Сайт: <a href= "https://kstuapp.ru/">https://kstuapp.ru/</a>. Красивый дизайн, возможность добавлять в закладки до 5 различных расписаний. Но отсутствовал офлайн режим, поэтому пользовались первым приложением.</p>
+	<p style="text-indent: 10px;">
+		В 2024 году «КГТУ Апп» стал основным и официальным приложением КГТУ. Я обращался лично к айтишникам из КГТУ, с просьбой добавить офлайн просмотр. Они обещали сделать автономную версию сайта. У них есть возможность делать автообновляемый подписочный календарь Google, который работает офлайн. Он действительно работает, но его не распространяют в открытый доступ. И конечно же они могут добавить офлайн сохранение в мобильное приложение. Как вы понимаете, ничего не сделали.
+	</p>
+	<p style="text-indent: 10px;">
+		В том же 2024 году я вместе с коллегой разработал «ИИ Чат-бот КГТУ» в Telegram. Да, это не приложение, но в нём я реализовал показ расписания и актуальных мероприятий университетского комплекса. Мы очень надеялись на поддержку от КГТУ, но столкнулись с большим количеством отговорок и отказом в использовании реального оборудования КГТУ. Проект работал в период с 2024 по 2025 годы на на устройствах студентов (не самых мощных), занимал призовые места в конкурсе и конференции, наши выпускные квалификационные работы былы оценены на отлично.</p>
+	<p style="text-indent: 10px;">
+		И вот теперь чат-бот для этих целей больше не нужен. Впервые приложение расписания под Windows. Студенты с ноутбуками оценят. Хотя в первую очередь «Жизнь КГТУ / KSTU Life» разрабатывалось под Android. Надеюсь, оно будет вам полезно. Добавьте страницу в закладки, вдруг выйдет новое обновление или появится сборка для ещё одной ОС.</p>
+    </details>
+</div>
+
+<footer>
+<span>2025</span>
+</footer>
+
+</body>
+</html>

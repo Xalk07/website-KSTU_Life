@@ -125,6 +125,73 @@ footer span {
 }
 </style>
 </head>
+
+<script>
+(function() {
+    var defaultUrl = 'https://github.com/Xalk07/website-KSTU_Life/releases';
+
+    function setFallbackLinks() {
+        document.getElementById('apk-link').href = defaultUrl;
+        document.getElementById('windows-link').href = defaultUrl;
+    }
+
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.github.com/repos/Xalk07/website-KSTU_Life/releases/latest', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+
+                        // Обновляем номер версии
+                        var versionElem = document.getElementById('version');
+                        versionElem.innerHTML = '<u>Версия ' + data.tag_name + '</u>';
+
+                        // Подставляем ссылки на APK и ZIP
+                        var assets = data.assets;
+                        var apkFound = false, zipFound = false;
+
+                        for (var i = 0; i < assets.length; i++) {
+                            var asset = assets[i];
+                            var name = asset.name.toLowerCase();
+                            if (name.indexOf('.apk') !== -1) {
+                                document.getElementById('apk-link').href = asset.browser_download_url;
+                                apkFound = true;
+                            }
+                            if (name.indexOf('.zip') !== -1) {
+                                document.getElementById('windows-link').href = asset.browser_download_url;
+                                zipFound = true;
+                            }
+                        }
+
+                        // Если каких-то файлов не нашли — fallback
+                        if (!apkFound || !zipFound) {
+                            setFallbackLinks();
+                        }
+
+                    } catch (e) {
+                        console.error('Ошибка парсинга JSON:', e);
+                        setFallbackLinks();
+                    }
+                } else {
+                    console.error('Ошибка загрузки API:', xhr.status);
+                    setFallbackLinks();
+                }
+            }
+        };
+        xhr.onerror = function() {
+            console.error('Сетевая ошибка запроса');
+            setFallbackLinks();
+        };
+        xhr.send();
+    } catch (e) {
+        console.error('Ошибка выполнения скрипта:', e);
+        setFallbackLinks();
+    }
+})();
+</script>
+
 <body>
 
 
@@ -138,18 +205,18 @@ footer span {
 <div class="main-block">
     <!-- Левый блок: текст и кнопки -->
     <div class="left-block">
-		<p style="text-indent: 10px;">Приложение для студентов, курсантов, преподавателей КГТУ и БГАРФ. Доступ к актуальным мероприятиям и академическому расписанию.</p>
-		<p style="text-indent: 10px;">Данные сохраняются для <b><u>просмотра офлайн!</b></u> Очень пригодится, когда в КГТУ снова окажетесь в зоне без мобильной связи и интернета.</p>
-		<h2 style="text-indent: 10px;text-align: center;"><u>Версия 1.0.1</u></h2>
+        <p style="text-indent: 10px;">Приложение для студентов, курсантов, преподавателей КГТУ и БГАРФ. Доступ к актуальным мероприятиям и академическому расписанию.</p>
+        <p style="text-indent: 10px;">Данные сохраняются для <b><u>просмотра офлайн!</b></u> Очень пригодится, когда в КГТУ снова окажетесь в зоне без мобильной связи и интернета.</p>
+        <h2 id="version" style="text-indent: 10px;text-align: center;"><u>Версия ...</u></h2>
         <div class="images-row">
-            <a href="https://github.com/Xalk07/website-KSTU_Life/releases/download/1.0.1/KSTU_Life_1.0.1_app-release.apk" target="_blank">
+            <a id="apk-link" href="https://github.com/Xalk07/website-KSTU_Life/releases" target="_blank">
                 <img src="android-apk-dark.png" alt="Скачать APK">
             </a>
-            <a href="https://github.com/Xalk07/website-KSTU_Life/releases/download/1.0.1/KSTU_Life_1.0.1_windows.zip" target="_blank">
+            <a id="windows-link" href="https://github.com/Xalk07/website-KSTU_Life/releases" target="_blank">
                 <img src="Скачать для Windows.png" alt="Скачать для Windows">
             </a>
         </div>
-		<p style="text-indent: 10px;">Протестировано на устройствах с операционными системами Android 10, 14 и Windows 10. На 32-битных устройствах работать не будет.</p>
+        <p style="text-indent: 10px;">Протестировано на устройствах с операционными системами Android 10, 14 и Windows 10. На 32-битных устройствах работать не будет.</p>
     </div>
 
     <!-- Правый блок: телефон -->
